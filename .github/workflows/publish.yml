@@ -1,0 +1,19 @@
+name: Publish Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/build.yml
+      - name: Download Build output
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: dist
+      - name: Check files
+      - run: ls
