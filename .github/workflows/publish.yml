@@ -5,11 +5,12 @@ on:
     types: [created]
 
 jobs:
+  build:
+    uses: ./.github/workflows/build.yml
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/build.yml
       - name: Download Build output
         uses: actions/download-artifact@v3
         with:
