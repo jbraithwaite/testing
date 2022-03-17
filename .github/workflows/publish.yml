@@ -17,4 +17,4 @@ jobs:
           name: build
           path: dist
       - name: Check files
-      - run: ls
+        run: ls
